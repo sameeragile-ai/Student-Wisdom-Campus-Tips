@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-editorial: 'Fraunces', Georgia, serif;
+    --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-ink: #0E1A2B;
+    --color-ink-soft: #3B4A5E;
+    --color-muted: #7A8699;
+    --color-canvas: #FAF7F2;
+    --color-surface: #FFFFFF;
+    --color-border: #ECE6DC;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-serif, .font-editorial {
+    font-family: var(--font-editorial);
+  }
+}
+
+/* Custom Gradients and Surfaces */
+.bg-sunrise {
+  background: linear-gradient(135deg, #FF5F45 0%, #FF8A3D 50%, #FFC04D 100%);
+}
+
+.text-sunrise {
+  background: linear-gradient(135deg, #FF5F45 0%, #FF8A3D 50%, #FFC04D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-lagoon {
+  background: linear-gradient(135deg, #0EA5A0 0%, #22C3B5 100%);
+}
+
+.text-lagoon {
+  background: linear-gradient(135deg, #0EA5A0 0%, #22C3B5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Shimmer Skeleton */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0eae1 25%, #fdfbf7 50%, #f0eae1 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #ECE6DC;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D9D0C3;
+}
+
+/* Grain texture overlay */
+.bg-grain {
+  background-image: radial-gradient(rgba(14, 26, 43, 0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.bg-grain-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Safe area insets for mobile */
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 0px), 12px);
+}
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top, 0px), 12px);
+}
